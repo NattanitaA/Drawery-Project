@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Deposit Choice</title>
+        <style>
+            .btn{
+                background-color:gray; 
+                border: none;
+                font-size:30px; 
+                margin:auto; 
+                display:inline-block; 
+                height:70px; 
+                width:200px;
+                border-radius: 15px;
+            }
+            .btn:hover, .btn:focus{
+                background-color:rgb(161, 160, 160);
+                cursor:pointer;
+                text-decoration: none;
+            }
+            .btn:active {
+                background-color: rgb(255, 255, 255);
+            }
+            /* modal background */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                padding-top: 100px; /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+            /* Modal Content */
+            .modal-content {
+                background-color: #fefefe;
+                margin: auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+            }
+            .loader {
+                border: 16px solid #f3f3f3; /* Light grey */
+                border-top: 16px solid #3498db; /* Blue */
+                border-radius: 50%;
+                width: 120px;
+                height: 120px;
+                animation: spin 2s linear infinite;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
+    </head>
+
+    <body style="background-color:rgb(50, 54, 57)">          
+        <h1 style="text-align:center; font-size:85px; color:white; margin-top:50px; margin-bottom:20px">Deposit</h1>
+        <h3 style="text-align:center; font-size:40px; color:white; margin-top:20px">Choose Drawer</h3>
+        <div style="text-align:center;"> 
+            <button type="button" class="btn" style="margin-right:5px" id="box1">box1</button>
+            <button type="button" class="btn" style="margin-left:5px" id="box2">box2</button>
+        </div>
+        <div style="text-align:center; margin-top:15px;">
+            <button type="button" class="btn" style="margin-right:5px" id="box3">box3</button>
+            <button type="button" class="btn" style="margin-left:5px" id="box4">box4</button>             
+        </div>
+        <br>
+        <a href="fingerprint_register.html" style="text-decoration:none; text-align:center;">
+            <button type="button" class="btn" style="margin-top:100px; display:block" onclick="buttonEnable()">Continue</button>
+        </a>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="loader"></div>
+            </div>
+        </div>
+        <script type = "text/javascript">
+            var x = 0;
+            var y = [1,0,0,0];
+            var i;
+            var j;
+            var box = "box"
+            var modal = document.getElementById("myModal");
+            var xhttp = new XMLHttpRequest();
+
+            function loading(){
+                if (x==1){
+                    modal.style.display = "block";
+                }
+            }
+            console.log(box)
+            
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        console.log(this.responseText);
+                        me = JSON.parse(this.responseText);
+                        console.log(me);                   
+                        for (j=0; j<me.length; j++){
+                            console.log(j);
+                            y[j]=me[j];
+                        }
+                        console.log(y);
+                        for (i=0; i<y.length; i++){
+                            console.log(y[i]);
+                            if (y[i] == 1){
+                                box+=i+1;
+                                console.log(box);
+                                document.getElementById(box).style.backgroundColor = 'rgb(50, 54, 57)';
+                                document.getElementById(box).style.borderColor = 'rgb(50, 54, 57)';
+                                document.getElementById(box).style.color = 'rgb(50, 54, 57)'
+                                document.getElementById(box).pointerEvents = "none";
+                                document.getElementById(box).pointer = "default";
+                                document.getElementById(box).disabled = true;
+                                box = 'box';
+                            }
+                        }
+                    }
+                }
+                console.log(y);
+                
+            xhttp.open("GET", "http://127.0.0.1:5000/name_deposit", true);
+            xhttp.send();          
+        </script>
+    </body>
+</html>  

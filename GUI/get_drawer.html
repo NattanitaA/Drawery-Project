@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>getting drawer</title>
+        <style>
+            .btn{
+                background-color:gray; 
+                border: none;
+                font-size:30px; 
+                margin:auto; 
+                display:inline-block; 
+                height:70px; 
+                width:200px;
+                border-radius: 15px;
+            }
+            .btn:hover{
+                background-color:rgb(161, 160, 160);
+            }
+            .btn:active {
+                background-color: rgb(255, 255, 255);
+            } 
+            .container {
+                text-align: center;
+            }
+        
+            .nameTag{
+                margin: auto; 
+                display: block;
+                height: 40px;
+                width: 250px;
+                font-size:20px;
+                text-align:center;
+
+            }
+            .lds-dual-ring:after {
+              display: inline-block;
+              width: 64px;
+              height: 64px;
+              content: " ";
+              display: block;
+              width: 80px;
+              height: 80px;
+              margin: 1px;
+              border-radius: 50%;
+              border: 5px solid #fff;
+              border-color: #fff transparent #fff transparent;
+              animation: lds-dual-ring 1.2s linear infinite;
+              margin:0 auto;
+            
+            }
+            @keyframes lds-dual-ring {
+              0% {
+                transform: rotate(0deg);
+              }
+              100% {
+                transform: rotate(360deg);
+              }
+            }
+        </style>
+    </head>
+
+        <body style="background-color:rgb(50, 54, 57)">    
+            <h1 style="text-align:center; font-size:85px; color:white; margin-top:50px; margin-bottom:100px">Getting drawer...</h1>
+            <div class="lds-dual-ring"></div>
+            <!--<form   action="http://127.0.0.1:5000/name" method="post">-->
+                <!-- <input class="nameTag" type="text" name="getdrawer" placeholder="getdrawer" > -->
+            
+                <div style="text-align:center;">
+                    <!--<a href="http://127.0.0.1:5000/" style="text-decoration:none">-->
+                        <button type="button" class="btn" style="margin-top:100px;">Cancel</button>
+                    </a>
+                    
+                </div>
+            </form> 
+        </body>
+        
+    </html>

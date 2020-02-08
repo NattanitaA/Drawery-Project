@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>place item</title>
+        <style>
+            .btn{
+                background-color:gray; 
+                border: none;
+                font-size:30px; 
+                margin:auto; 
+                display:inline-block; 
+                height:70px; 
+                width:200px;
+                border-radius: 15px;
+            }
+            .btn:hover{
+                background-color:rgb(161, 160, 160);
+            }
+            .btn:active {
+                background-color: rgb(255, 255, 255);
+            } 
+            .container {
+                text-align: center;
+            }
+        
+            .nameTag{
+                margin: auto; 
+                display: block;
+                height: 40px;
+                width: 250px;
+                font-size:20px;
+                text-align:center;
+
+            }
+        </style>
+    </head>
+    
+    <body style="background-color:rgb(50, 54, 57)">    
+        <h1 style="text-align:center; font-size:85px; color:white; margin-top:50px; margin-bottom:100px">Please place your item</h1> 
+        <div style="text-align:center;">
+            <form id="weight_data" action="http://127.0.0.1:5000/weight_check_deposit" method="post">
+                <input type="hidden" id="weight" name="weight" value="true">
+            </form>
+            <form action="http://127.0.0.1:5000/buttonpressed_deposit" method="post">
+                <button type="submit" class="btn" style="margin-top:100px;">Done</button>
+            </form>
+        </div>
+    </body>
+    <script type="text/javascript">
+        function AutoSubmit(){
+            var frm = document.getElementById("weight_data");
+            frm.submit();
+        }
+        <!--window.onload = AutoSubmit;-->
+    </script>
+</html>

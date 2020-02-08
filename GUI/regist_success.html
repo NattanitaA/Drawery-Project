@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>register</title>
+        <style>
+            .btn{
+                background-color:gray; 
+                border: none;
+                font-size:30px; 
+                margin:auto; 
+                display:inline-block; 
+                height:70px; 
+                width:200px;
+                border-radius: 15px;
+            }
+            .btn:hover{
+                background-color:rgb(161, 160, 160);
+            }
+            .btn:active {
+                background-color: rgb(255, 255, 255);
+            } 
+            .container {
+                text-align: center;
+            }
+        
+            .nameTag{
+                margin: auto; 
+                display: block;
+                height: 40px;
+                width: 250px;
+                font-size:20px;
+                text-align:center;
+
+            }
+        </style>
+    </head>
+
+        <body style="background-color:rgb(50, 54, 57)">    
+            <h1 style="text-align:center; font-size:85px; color:white; margin-top:50px; margin-bottom:100px">Register success!</h1> 
+            <form   action="http://127.0.0.1:5000/name" method="post">
+                <!-- <input class="nameTag" type="text" name="FirstName" placeholder="Name" > -->
+            
+                <div style="text-align:center;">
+                    <a href="http://127.0.0.1:5000/" style="text-decoration:none">
+                        <button type="button" class="btn" style="margin-top:100px;">Cancel</button>
+                    </a>
+                    <button type="submit" class="btn" style="margin-top:100px;"">Continue</button>
+                </div>
+            </form> 
+        </body>
+        
+    </html>
